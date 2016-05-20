@@ -13,8 +13,17 @@ class VehiclesTable extends Migration
     public function up()
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('series');
+            $table->string('color');
+            $table->string('power');
+            $table->string('capacity');
+            $table->string('speed');
+            $table->integer('maker_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('vehicles', function (Blueprint $table) {
+            $table->foreign('maker_id')->references('id')->on('makers');
         });
     }
 
