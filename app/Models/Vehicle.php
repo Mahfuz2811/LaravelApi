@@ -12,9 +12,9 @@ class Vehicle extends Model
 
     protected $fillable = ['color','power','capacity','speed','maker_id'];
 
-    protected $hidden = ['series','created_at','updated_at'];
+    protected $hidden = ['series','created_at','updated_at','maker_id'];
 
-    protected function makers()
+    public function makers()
     {
     	return $this->belongTo('App\Models\Maker');
     }
